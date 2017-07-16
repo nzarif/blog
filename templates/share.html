@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+  <title>share a post</title>
+    <style>
+        div.head{
+              top:5%;
+        width: 98%;
+        position: fixed;
+        background-color: hotpink;
+              border: dashed;
+              border-color: mediumpurple;
+            border-radius: 10px;
+        }
+        body{
+        background-image: url(pink.jpg);
+            background-repeat: repeat;
+        }
+        p.headtext{
+        font-size: 20px;
+        font-family: Arial;
+            font-weight: 600;
+        word-spacing: 25px;
+        text-indent: 10px;
+        line-height: 250%;
+        }
+        a:hover{
+            color: crimson;
+        }
+        a{
+            color: #b3d4fc;
+            text-decoration: none;
+        }
+        div.full{
+            top: 150px;
+            position: absolute;
+            left:20%;
+            width: 60%;
+            background-color:bisque ;
+            padding: 10px;
+            border-radius: 10%;
+        }
+    </style>
+</head>
+<body>
+<script src="1.js"></script>
+<div class="full">
+        <label style="font-size: 28px; margin: 20px;">Title:</label><br>
+        <input type="text" id="ttl" style="margin: 20px;"><br>
+        <label style="font-size: 28px; margin: 20px;">Summary:</label><br>
+        <textarea type="text" style="width: 60%; height: 100px; overflow: scroll; margin: 20px;" id="sum"></textarea><br>
+        <label style="font-size: 28px; margin: 20px;">Text:</label><br>
+            <textarea type="text" style="width: 60%; height: 300px; overflow: scroll; margin: 20px;" id="txt"></textarea><br>
+        <button type="submit" style=" margin:30px; " onclick=postfunc(); >POST</button>
+</div>
+<div class="head">
+    <p class="headtext">
+    <a href="index.html">profile</a>
+    <a href="blog.html">weblog</a>
+    <a href="timeline.html">timeline</a>
+    </p>
+</div>
+</body>
+</html>

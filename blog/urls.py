@@ -16,11 +16,18 @@ Including another URLconf
 from django.conf.urls import url , include
 from django.contrib import admin
 from blog import views as blog_views
+from auth import views as auth_views
 
 
 urlpatterns = [
-    url(r'^$',blog_views.index),
-    url(r'^blogs/', include('weblog.urls')),
-    url(r'^about.html$',blog_views.about),
+    url(r'^$',auth_views.register),
+    url(r'^auth/register$',auth_views.register),
+    url(r'^auth/login$',auth_views.login),
+    url(r'^blog/posts', blog_views.posts),
+    url(r'^blog/post',blog_views.post),
+    url(r'^blog/post',blog_views.share),
+    url(r'^blog/comments',blog_views.comments),
+    url(r'^blog/comment',blog_views.comment),
+    url(r'^admin/', admin.site.urls),
     url(r'^admin/', admin.site.urls),
 ]

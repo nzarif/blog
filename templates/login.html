@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+  <title>login</title>
+    <style>
+        div.head{
+              top:5%;
+        width: 98%;
+        position: fixed;
+        background-color: hotpink;
+              border: dashed;
+              border-color: mediumpurple;
+            border-radius: 10px;
+        }
+        body{
+        background-image: url(pink.jpg);
+            background-repeat: repeat;
+        }
+        p.headtext{
+        font-size: 20px;
+        font-family: Arial;
+            font-weight: 600;
+        word-spacing: 25px;
+        text-indent: 10px;
+        line-height: 250%;
+        }
+        a:hover{
+            color: crimson;
+        }
+        a{
+            color: #b3d4fc;
+            text-decoration: none;
+        }
+        div.full{
+            top: 150px;
+            position: absolute;
+            left:20%;
+            width: 60%;
+            background-color:bisque ;
+            padding: 10px;
+            border-radius: 10%;
+        }
+    </style>
+</head>
+<body>
+<script src="1.js"></script>
+<div class="full">
+        student number:<br>
+        <input type="number" id="stid"><br>
+        password:<br>
+        <input type="password" id="pwd"><br>
+        <br>
+        <button type="submit" title="SUBMIT" onclick=loginfunc();>log in</button>
+</div>
+<div class="head">
+    <p class="headtext">
+    <a href="index.html">profile</a>
+    <a href="blog.html">weblog</a>
+    <a href="timeline.html">timeline</a>
+    </p>
+</div>
+</body>
+</html>

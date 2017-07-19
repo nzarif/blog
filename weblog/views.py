@@ -2,10 +2,6 @@ from django.shortcuts import render , get_object_or_404
 from weblog.models import Weblog, Comment, Post
 
 
-def weblogs(request):
-    webloglist= Weblog.objects.all()
-    return render(request, 'weblogs.html', {'weblogs': webloglist})
-
 
 def weblog(request, weblog_id):
     weblog= get_object_or_404(Weblog, pk=weblog_id )

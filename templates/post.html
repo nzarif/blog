@@ -1,3 +1,4 @@
+{% load static %}
 <html>
 <head>
   <title>{{ Post.title }}</title>
@@ -12,7 +13,7 @@
             border-radius: 10px;
         }
         body{
-        background-image: url(pink.jpg);
+        background-image: url({% static 'img\pink.jpg' %});
             background-repeat: repeat;
         }
         p.headtext{
@@ -43,7 +44,7 @@
 </head>
 <body>
 <div class="full">
-    <center><img src="img\p1.jpg"></center>
+    <center><img src="{% static 'img\p1.jpg' %}"></center>
     <p class="post">
         {{ Post.text }}
     </p>

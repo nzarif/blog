@@ -1,3 +1,4 @@
+{% load static %}
 <html>
 <head>
     <meta charset="UTF-8">
@@ -13,7 +14,7 @@
             border-radius: 10px;
         }
         body{
-        background-image: url(pink.jpg);
+        background-image: url({% static 'img\pink.jpg' %});
             background-repeat: repeat;
         }
         p.headtext{
@@ -53,7 +54,7 @@
     </style>
 </head>
 <body onload=getpost();>
-<script src="2.js"></script>
+<script src="{% static 'js\2.js' %}"></script>
 <div class="full">
     <p id="ttl" class="ttl"></p>
     <p class="post" id="txt">

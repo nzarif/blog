@@ -15,19 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url , include
 from django.contrib import admin
-from blog import views as blog_views
+from weblog import views as weblog_views
 from authc import views as auth_views
 
 
 urlpatterns = [
     url(r'^$',auth_views.register),
-    url(r'^auth/register$',auth_views.register),
-    url(r'^auth/login$',auth_views.login),
-    url(r'^blog/posts', blog_views.posts),
-    url(r'^blog/post',blog_views.post),
-    url(r'^blog/post',blog_views.share),
-    url(r'^blog/comments',blog_views.comments),
-    url(r'^blog/comment',blog_views.comment),
-    url(r'^admin/', admin.site.urls),
+    url(r'^register.html$',auth_views.register),
+    url(r'^login.html$',auth_views.login),
+    url(r'^posts.html', weblog_views.posts),
+    url(r'^share.html', weblog_views.share),
+    url(r'^post.html',weblog_views.post),
+    url(r'^comments.html',weblog_views.comments),
+    url(r'^comment.html',weblog_views.comment),
     url(r'^admin/', admin.site.urls),
 ]

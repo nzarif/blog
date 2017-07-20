@@ -1,3 +1,4 @@
+{% load static %}
 <html>
 <head>
   <title>blog</title>
@@ -28,7 +29,7 @@
              border-width: 5px;
         }
         body{
-        background-image: url(pink.jpg);
+        background-image: url({% static 'img\pink.jpg' %});
             background-repeat: repeat;
         }
         p.headtext{
@@ -104,11 +105,11 @@
     </style>
 </head>
 <body onload=postget()>
-<script src="2.js"></script>
+<script src="{% static 'js\2.js' %}"></script>
 <div class="full" id="full">
 </div>
 <div class="cover">
-        <img class="cover" src="img\flowers.jpg" />
+        <img class="cover" src="{% static 'img\flowers.jpg'%}" />
     </div>
 <div class="head">
     <p class="headtext">

@@ -32,5 +32,5 @@ class Post(models.Model):
 class Comment(models.Model):
     postId=models.ForeignKey(Post)
     text=models.TextField()
-    id=models.CharField(primary_key=True)
+    id=models.IntegerField(primary_key=True)
     user=models.ForeignKey(User)

@@ -1,3 +1,4 @@
+{% load static %}
 <html>
 <head>
   <title>welcome</title>
@@ -12,7 +13,7 @@
             border-radius: 10px;
         }
         body{
-        background-image: url(pink.jpg);
+        background-image: url({% static 'img/pink.jpg' %});
             background-repeat: repeat;
         }
         p.headtext{
@@ -42,7 +43,7 @@
     </style>
 </head>
 <body>
-<script src="1.js"></script>
+<script src="{% static 'js/1.js' %}"></script>
 <div class="full">
     <p style="font-size:32px ">welcome!</p>
     <a href="login.html">log in and post now!</a>

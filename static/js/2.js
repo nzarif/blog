@@ -128,3 +128,22 @@ function  postget() {
     offset=offset+5;
     }
 }
+
+
+function search() {
+    var search=document.getElementById("search").value;
+var object = new FormData();
+    object.append('phrase', search);;
+var a = new XMLHttpRequest();
+a.open("POST", "https://ce419.herokuapp.com/blog/search",false);
+a.onreadystatechange = function () {
+        var ans = JSON.parse(a.responseText);
+        if(ans.status==0){
+            window.location.href="welcome.html";
+            //alert("done");
+        }
+        ans=JSON.stringify(ans);
+       //rt(ans);
+    };
+a.send(object);
+}

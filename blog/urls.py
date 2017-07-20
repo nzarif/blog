@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url , include
 from django.contrib import admin
 from blog import views as blog_views
-from auth import views as auth_views
+from authc import views as auth_views
 
 
 urlpatterns = [

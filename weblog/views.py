@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def share(request, bid):
+    bid=int(bid)
     try:
         t = request.META['HTTP_X_TOKEN']
     except:
@@ -19,11 +20,11 @@ def share(request, bid):
         summ = request.POST['summary']
         txt = request.POST['text']
         try:
-            w = Weblog.objects.get(bid=bid, author=t)
+            w = Weblog.objects.get(id=bid, author__token=t)
         except:
-            w = None
+            w=None
         if w == None:
-            return JsonResponse({'status': -1})
+            return JsonResponse({'status': -1, 'msg':"no such weblog" ,'bid':bid , 'token':t})
         else:
             try:
                 i = Post.objects.count()
@@ -32,12 +33,13 @@ def share(request, bid):
                 pid = 0
             import datetime
             Post.objects.create(weblog=w, id=pid + 1, title=ttl, summary=summ, text=txt, date=datetime.datetime.now())
-            return JsonResponse({'status': 0})
+            return JsonResponse({'status': 0 , 'pid':pid+1})
 
 
 
 @csrf_exempt
 def getposts(request, bid):
+    bid = int(bid)
     if request.method == 'POST':
         return HttpResponse("wrong method for posts")
     else:
@@ -57,7 +59,7 @@ def getposts(request, bid):
                 tmp=request.GET['offset']
                 offst = int(tmp)
             try:
-                p = Post.objects.filter(weblog__author__token=t)
+                p = Post.objects.filter(weblog__author__token=t, weblog__id=bid)
                 if len(p) < cnt:
                     cnt = len(p)
                 p = p[offst:offst + cnt]
@@ -78,6 +80,7 @@ def getposts(request, bid):
 
 @csrf_exempt
 def comment(request, bid):
+    bid = int(bid)
     try:
         t = request.META['HTTP_X_TOKEN']
     except:
@@ -88,7 +91,7 @@ def comment(request, bid):
         return JsonResponse({'status': -1})
     else:
         txt = request.POST['text']
-        pid = request.POST['post_id']
+        pid = int(request.POST['post_id'])
         try:
             p = Post.objects.get(id=pid, weblog__author__token=t, weblog__id=bid)
         except:
@@ -108,6 +111,7 @@ def comment(request, bid):
 
 @csrf_exempt
 def getcomments(request, bid):
+    bid = int(bid)
     if request.method == 'POST':
         return HttpResponse("posts")
     else:
@@ -132,7 +136,7 @@ def getcomments(request, bid):
             except:
                 cms = None
             if cms == None:
-                return JsonResponse({'sattus': -1})
+                return JsonResponse({'sattus': -1 })
             else:
                 cmarray = []
                 for comnt in cms:

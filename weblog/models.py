@@ -5,20 +5,20 @@ from authc.models import User
 
 class Weblog(models.Model):
     id = models.IntegerField(primary_key=True)
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=200,null=True)
     image = models.TextField(max_length=10000 , blank=True, null=True )
-    author = models.ForeignKey(User)
+    author = models.ForeignKey(User, null=False)
     description = models.TextField(max_length=25000000 , blank=True , null=True)
     pass
 
 
 class Post(models.Model):
-    text=models.TextField()
+    text=models.TextField(max_length=10)
     title=models.CharField(max_length=25)
     summary=models.TextField(max_length=300)
     id=models.CharField(max_length=10 , primary_key=True)
     weblog=models.ForeignKey(Weblog)
-    date=models.TimeField()
+    date=models.TimeField(default=None)
     pass
 
 

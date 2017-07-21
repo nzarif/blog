@@ -23,9 +23,9 @@ urlpatterns = [
     url(r'^$',auth_views.register),
     url(r'^auth/register$',auth_views.register),
     url(r'^auth/login$',auth_views.login),
-    url(r'^blog/posts', weblog_views.getposts),
-    url(r'^blog/post', weblog_views.share),
-    url(r'^blog/comments',weblog_views.getcomments),
-    url(r'^blog/comment',weblog_views.comment),
+    url(r'^blog/(?P<bid>\d+)/posts', weblog_views.getposts),
+    url(r'^blog/(?P<bid>\d+)/post', weblog_views.share),
+    url(r'^blog/(?P<bid>\d+)/comments',weblog_views.getcomments),
+    url(r'^blog/(?P<bid>\d+)/comment',weblog_views.comment),
     url(r'^admin/', admin.site.urls),
 ]

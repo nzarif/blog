@@ -21,12 +21,11 @@ from authc import views as auth_views
 
 urlpatterns = [
     url(r'^$',auth_views.register),
-    url(r'^register.html$',auth_views.register),
-    url(r'^login.html$',auth_views.login),
-    url(r'^posts.html', weblog_views.posts),
-    url(r'^share.html', weblog_views.share),
-    url(r'^post.html',weblog_views.post),
-    url(r'^comments.html',weblog_views.comments),
-    url(r'^comment.html',weblog_views.comment),
+    url(r'^auth/register$',auth_views.register),
+    url(r'^auth/login$',auth_views.login),
+    url(r'^blog/posts', weblog_views.getposts),
+    url(r'^blog/post', weblog_views.share),
+    url(r'^blog/comments',weblog_views.getcomments),
+    url(r'^blog/comment',weblog_views.comment),
     url(r'^admin/', admin.site.urls),
 ]

@@ -1,18 +1,10 @@
 from django.db import models
+from authc.models import User
 
-
-class User(models.Model):
-    username = models.CharField(primary_key=True,max_length=25)
-    password = models.CharField(max_length=12)
-    firstName = models.CharField(max_length=25)
-    lastName = models.CharField(max_length=25)
-    email = models.CharField(max_length=50)
-    bid = models.IntegerField()
-    pass
 
 
 class Weblog(models.Model):
-    bid = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
     image = models.TextField(max_length=10000 , blank=True, null=True )
     author = models.ForeignKey(User)
@@ -26,11 +18,12 @@ class Post(models.Model):
     summary=models.TextField(max_length=300)
     id=models.CharField(max_length=10 , primary_key=True)
     weblog=models.ForeignKey(Weblog)
+    date=models.TimeField()
     pass
 
 
 class Comment(models.Model):
-    postId=models.ForeignKey(Post)
+    pid=models.ForeignKey(Post,default=None)
     text=models.TextField()
     id=models.IntegerField(primary_key=True)
-    user=models.ForeignKey(User)
+    date = models.DateField(default=None)
